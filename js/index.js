@@ -5,6 +5,8 @@ _endpoint = 'https://jonathlan.github.io/Donations-Banners/demo/endpoint.json';
 
 var _now = new Date(Date.now());
 var _timeout = 5000;
+var _donationsList = [];
+var _k = 0;
 
 function date_diff(dt2, dt1) {
     var diff = (dt2.getTime() - dt1.getTime()) / 1000;
@@ -13,20 +15,20 @@ function date_diff(dt2, dt1) {
 }
 
 
-async function getDonations(){
+async function getDonations() {
     const response = await fetch(_endpoint);
 
-    if (response.status >= 200 && response.status <= 400){
+    if (response.status >= 200 && response.status <= 400) {
         const json = await response.json();
         return await json.data;
     }
-    else{
+    else {
         console.log(`Error fetching data: ${response.status}`)
         return [];
     }
 }
 
-function updateBanner(name, curr, amnt, comment, creationDate){    
+function updateBanner(name, curr, amnt, comment, creationDate) {
     var donationDate = new Date(creationDate);
     var diffminutes = date_diff(_now, donationDate);
 
@@ -35,23 +37,29 @@ function updateBanner(name, curr, amnt, comment, creationDate){
     document.getElementById("date").innerText = "Hace " + diffminutes + " minutos.";
 }
 
-async function waitfornext(){
-    setTimeout(function() {
-        console.log("Waiting...");
-    }, _timeout)
+function updateNextDonation() {
+    if (_k >= _donationsList.length) {
+        _k = 0;
+    }
+
+    updateBanner(_donationsList[_k].name, _donationsList[_k].currency_code, _donationsList[_k].total_charge_currency, _donationsList[_k].dedication, _donationsList[_k].created_at);
+    _k++;
 }
 
-async function renderBanner(){
+function displayHello() {
+    console.log("Hello");
+}
+
+async function renderBanner() {
     let donations = await getDonations();
+    donations.forEach(donation => {
+        _donationsList.push(donation.attributes);
+    });
 
-    donations.forEach(async donation => {        
-        const donAttributes = donation.attributes;
-
-        //console.log(`fetch: ${name}, ${comment}, ${creationDate}`);
-        await waitfornext();
-        updateBanner(donAttributes.name, donAttributes.currency_code, donAttributes.total_charge_currency, donAttributes.dedication, donAttributes.created_at);
-        
-    });    
+    setInterval(updateNextDonation, _timeout);
 }
 
 renderBanner();
+
+
+
