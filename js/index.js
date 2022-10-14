@@ -1,6 +1,3 @@
-// useful:
-// Render data: https://www.javascripttutorial.net/javascript-fetch-api/
-
 
 var _endpoint = "https://api.charidy.com/api/v1/campaign/18262/donations?searchQ=&limit=10&sortBy=-time&extend=organization&extend=team&extend=level&extend=converted_currency&extend=campaign"
 
@@ -14,37 +11,10 @@ function date_diff(dt2, dt1) {
     return Math.abs(Math.round(diff));
 }
 
-/*
-async function getbanner(){
-    const response = await fetch(_endpoint);
-    var donations;
-    if (response.status >= 200 && response.status <= 400){
-        const json = await response.json();
-        donations = json.data;
-    }
-    else{
-        console.log(`Error fetching data: ${response.status}`)
-        return;
-    }
-
-    donations.forEach(donation => {        
-        const donAttributes = donation.attributes;
-
-        const name = donAttributes.name;
-        const comment = donAttributes.dedication; 
-        const creationDate = donAttributes.created_at;
-        const amount = donAttributes.total_charge_currency;
-        const currency = donAttributes.currency_code;
-
-        //console.log(`fetch: ${name}, ${comment}, ${creationDate}`);
-
-        updateBanner(name, currency, amount, comment, creationDate);
-    });    
-}*/
 
 async function getDonations(){
     const response = await fetch(_endpoint);
-    
+
     if (response.status >= 200 && response.status <= 400){
         const json = await response.json();
         return await json.data;
@@ -77,5 +47,3 @@ async function renderBanner(){
 }
 
 renderBanner();
-
-//getbanner();
