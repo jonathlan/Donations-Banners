@@ -17,6 +17,24 @@
                 "name": "Adriana Lopez",
                 "total_charge_currency": 100
             }
+        },
+        {
+            "attributes": {
+                "created_at": 1665742622,
+                "currency_code": "MXN",
+                "dedication": "Sigan con el gran trabajo.",
+                "name": "Gabriela Martinez",
+                "total_charge_currency": 50
+            }
+        },
+        {
+            "attributes": {
+                "created_at": 1665742622,
+                "currency_code": "MXN",
+                "dedication": "Muchas gracias por todo.",
+                "name": "Jennifer Lopez",
+                "total_charge_currency": 500
+            }
         }
     ]
 }
