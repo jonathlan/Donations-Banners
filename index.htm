@@ -36,6 +36,46 @@
                     </div>
                 </div>
             </div>
+            <div class="row" style="height: 50px;"></div>
+            <div id="controls" class="row mt-4">
+                <div class="col col-2">
+                    <div class="row">
+                        <button type="button" class="btn btn-success big-button" onclick="playDonations()">Play</button>
+                    </div>
+                    <div class="row mt-4">
+                        <button type="button" class="btn btn-warning" onclick="pauseDonations()">Pause</button>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="form-check ps-0 pe-0">
+                            <input type="checkbox" class="btn-check" id="btn_demo" autocomplete="off">
+                            <label class="btn btn-outline-secondary w-100" for="btn_demo">Demo mode</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-2">
+                    <div class="row">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="row">
+                        <p id="status">Waiting</p>
+                    </div>
+                </div>
+                <div class="col col-4 visually-hidden">
+                    <form class="row g-3">
+                        <div class="col-3">
+                            <label for="staticTimer" class="visually-hidden">Timer</label>
+                            <input type="text" readonly class="form-control-plaintext" id="staticTimer" value="Timer">
+                        </div>
+                        <div class="col-4">
+                            <label for="inputSeconds" class="visually-hidden">Seconds</label>
+                            <input type="text" class="form-control" id="inputSeconds" placeholder="Seconds">
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-primary mb-3" onclick="setTimer()">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!--/Main-->

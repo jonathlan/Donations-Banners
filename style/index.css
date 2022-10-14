@@ -1,7 +1,11 @@
-.card-body{
+.card-body {
     background-color: aliceblue;
 }
 
-#donation img{
+#donation img {
     max-height: 125px;
+}
+
+.big-button {
+    height: 80px;
 }
