@@ -9,3 +9,17 @@
 .big-button {
     height: 80px;
 }
+
+#banner {
+    position: relative;
+}
+
+#banner .overlay {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    right: 5em;
+    /*background-color: rgba(0,0,0,0.5);*/
+    color: white;
+    z-index: 1;
+}

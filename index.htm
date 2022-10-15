@@ -12,31 +12,46 @@
 
 <body>
     <!--Main-->
-    <div id="main">
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col col-12">
-                    <div id="donation">
-                        <div class="card mb-3 ">
-                            <div class="row g-0">
-                                <div class="col-md-1">
-                                    <img src="https://b313e8803f7a4150a884-6e0b076a1e92e31c40be44f466689c50.ssl.cf5.rackcdn.com/images/loginid165846/ba1e56a2f0f83fb634610a5b045ee94e_1647025354.jpeg"
-                                        class="img-fluid rounded-start" alt="avatar">
-                                </div>
-                                <div class="col-md-11">
-                                    <div class="card-body">
-                                        <h1 id="name" class="card-title">Loading...</h1>
-                                        <p id="comment" class="card-text">Loading...</p>
-                                        <p class="card-text"><small id="date" class="text-muted">Loading...</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+    <main id="main">
+        <div id="banner">
+            <div class="container-fluid ps-0 pe-0">
+                <div class="row-auto">
+                    <div class="col-auto">
+                        <img src="./img/banner-background.png" class="d-block w-100" alt="hatzalla banner background">
+                    </div>
+                </div>
+            </div>
+            <div class="overlay">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col text-center">
+                            <span id="amount" class="mb-0 fs-3 border border-3 rounded-4 ps-3 pe-3">000</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p id="name" class="mb-0 text-uppercase fs-1 fw-semibold">Loading...</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="amount-overlay">
+                <div class="container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/Main-->
+    <!--controls-->
+    <div id="controls">
+        <div class="container">
             <div class="row" style="height: 50px;"></div>
+            <div class="row">
+                <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+                    Controls
+                </div>
+            </div>
             <div id="controls" class="row mt-4">
                 <div class="col col-2">
                     <div class="row">
@@ -78,7 +93,7 @@
             </div>
         </div>
     </div>
-    <!--/Main-->
+    <!--/controls-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
