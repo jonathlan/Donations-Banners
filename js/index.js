@@ -40,6 +40,10 @@ function updateBanner(name, curr, amnt, comment, creationDate) {
 function updateNextDonation() {
     if (_k >= _donationsList.length) {
         _k = 0;
+        // Nomore donations fetch from server
+        console.log("No more dontations, fetch from the server.");
+        renderBanner();
+        return;
     }
 
     updateBanner(_donationsList[_k].name, _donationsList[_k].currency_code, _donationsList[_k].total_charge_currency, _donationsList[_k].dedication, _donationsList[_k].created_at);
@@ -47,6 +51,7 @@ function updateNextDonation() {
 }
 
 async function renderBanner() {
+    clearIntervals();
     let donations = await getDonations();
     _donationsList.length = 0;
     donations.forEach(donation => {
@@ -72,10 +77,7 @@ function playDonations() {
 function pauseDonations() {
     console.log("Pause.");
     _donationsList.length = 0;
-    // Clear all intervals.
-    for (let i = 1; i < _intervalID; i++) {
-        window.clearInterval(i);
-    }
+    clearIntervals();
     document.getElementById("status").innerHTML = "Paused";
 }
 
@@ -87,4 +89,13 @@ function setTimer() {
         console.log(`Using custom timer: ${_timeout}`);
     }
     playDonations();
+}
+
+function clearIntervals(){
+    // Clear current interval
+    clearInterval(_intervalID);
+    // Clear all intervals.
+    for (let i = 1; i < _intervalID; i++) {
+        window.clearInterval(i);
+    }
 }
