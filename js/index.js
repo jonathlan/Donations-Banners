@@ -1,3 +1,6 @@
+// Try something like this for the animations:
+// https://codepen.io/yoannhel/pen/DMzjog
+// https://speckyboy.com/css-javascript-text-animation-snippets/
 var _urlProd = "https://api.charidy.com/api/v1/campaign/18262/donations?searchQ=&limit=10&sortBy=-time&extend=organization&extend=team&extend=level&extend=converted_currency&extend=campaign";
 var _urlDemo = "https://jonathlan.github.io/Donations-Banners/demo/endpoint.json";
 var _endpoint = _urlProd;
