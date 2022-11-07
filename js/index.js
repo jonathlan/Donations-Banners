@@ -34,6 +34,9 @@ function updateBanner(name, curr, amnt, comment, creationDate) {
     var donationDate = new Date(creationDate);
     var diffminutes = date_diff(_now, donationDate);
 
+    var dues = 60;
+    amnt = amnt / dues;
+
     document.getElementById("amount").innerHTML = `$${amnt}`;
     document.getElementById("name").innerHTML = name;
     //document.getElementById("comment").innerHTML = comment;
