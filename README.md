@@ -25,6 +25,9 @@ Displays the status of the tool:
 ### Playing
 The tool displays the donations retrieved from the API, one by one with a delay of 8 seconds by default.
 
+### Paused
+Rotation is paused. Click `Play` to resume.
+
 # FAQ
 ### The banner doesn't refresh
 Check how many donations are in the API. If there's only one, the tool will rotate on that over an over again
